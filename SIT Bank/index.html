@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SIT Bank</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Acme">
+  <link rel="apple-touch-icon" sizes="57x57" href="Imagest/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="Imagest/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="Imagest/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="Imagest/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="Imagest/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="Imagest/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="Imagest/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="Imagest/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="Imagest/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="Imagest/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="Imagest/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="Imagest/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="Imagest/favicon-16x16.png">
+<link rel="manifest" href="Imagest/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+  <script>
+    document.addEventListener("keyup",(e)=>{
+      if(e.key=='PrintScreen'){
+        navigator.clipboard.writeText('');
+        alert("ScreenShot Disabled")
+      }
+      else if(e.key=='Meta'){
+        navigator.clipboard.writeText('');
+        alert("ScreenShot Disabled")
+      }
+    });
+    </script>
+  </head>
+  <body>
+    <div id="preloader"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <nav class="navbar navbar-expand-lg bg-FFFFFF">
+        <div class="container-fluid">
+        <img src="logo.png" alt="SIT_Bank" width="160" height="80">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <!-- <li class="nav-item">
+                <a id="sig" class="nav-link" href="#">Sign in</a>
+              </li> -->
+              <li class="nav-item">
+                <a id="reg" class="nav-link" href="http://127.0.0.1:5500/register.html">Register</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <p id="let">Let's Connect</p>
+      <img id="lb" src="login_back.png">
+      <img id="ch" src="cash.png">
+      <div id="bu"></div>
+      <p id="let1">with Us</p>
+      <p id="if">if you don't an account</p>
+      <p id="can">you can <span id="he">Register here!</span></p>
+      <img id="rp" src="rupees.png">
+      <img id="rp1" src="rupees.png">
+      <img id="rp2" src="rupees.png">
+      <div class="input">
+        <div class="card" style="width: 25rem;" id="car">
+          <img id="im" src="avt.png" class="card-img-top" alt="image">
+          <div class="card-body">
+            <div class="input-group mb-3">
+              <input id="em" type="text" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+              <span class="input-group-text" ><i id="bo" class="fa fa-times" aria-hidden="true"></i></span>
+            </div>
+            <div class="input-group mb-3">
+              <input type="password" class="form-control" id="pass" placeholder="Password" aria-label="Recipient's username" aria-describedby="basic-addon2">
+              <i class="input-group-text" id="vie"><i id="eye" class="fa fa-eye" aria-hidden="true"></i></i>
+            </div>
+            <ion-icon name="eye-outline"></ion-icon>
+            <div class="g-recaptcha" data-sitekey="6LcPkfAhAAAAAAGvsCcNGZ3UoYQY4qZk6heklXWf"></div>
+            <i id="forg">forget password?</i>
+            <a class="btn btn-primary" id="btn">Sign   in</a>
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-danger" id="alets" role="alert" style="visibility:hidden;">
+        Fill all blanks text field—check it out!
+      </div>
+      
+       
+    <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCmzzSNbKruwtBU2M6FoJpUq4FtOpa1wJ8",
+    authDomain: "sit-bank.firebaseapp.com",
+    databaseURL: "https://sit-bank-default-rtdb.firebaseio.com",
+    projectId: "sit-bank",
+    storageBucket: "sit-bank.appspot.com",
+    messagingSenderId: "100379698316",
+    appId: "1:100379698316:web:535c337a36e50cdfe407a9",
+    measurementId: "G-EDJ7Z5J27T"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  
+     let vie =document.getElementById('vie');
+     vie.addEventListener("click",()=>{
+      let pass =document.getElementById('pass');
+      let eye =document.getElementById('eye');
+      if(pass.type=="password"){
+        eye.className="fa fa-eye-slash";
+        pass.type="text";
+      }
+      else{
+        eye.className="fa fa-eye";
+        pass.type="password";
+      }
+     });
+     let bo =document.getElementById('bo');
+     bo.addEventListener("click",()=>{
+      let em =document.getElementById('em').value="";
+     });
+     let btn=document.getElementById('btn');
+     btn.addEventListener("click",()=>{
+      let pass =document.getElementById('pass').value;
+      let em =document.getElementById('em').value;
+      let alets=document.getElementById('alets');
+      if(pass==""||em=="")
+      {
+        setTimeout(() => {
+            alets.style.visibility="visible";
+          }, 1000);
+
+          setTimeout(() => {
+            alets.style.visibility="hidden";
+          }, 8000);
+      }
+      var response=grecaptcha.getResponse();
+      if(response.length==0)
+      {
+        alert("Fill the recaptcha");
+      }
+      else if(!em.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/))
+     {
+      alert("Enter the valid email");
+     }
+     else{
+      const auth=getAuth(app);
+      signInWithEmailAndPassword(auth, em, pass)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    let m="";
+    let i;
+    for(i=0;i<em.length;i++)
+   {
+    if(em[i]=="@"||em[i]==".")
+    {
+       break;
+    }
+    m+=em[i];
+   }
+   localStorage.setItem("logs",m);
+    window.location.replace("http://127.0.0.1:5500/DashBoard/Dashboard.html");
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage);
+  });
+     }
+
+      
+     });
+     let forg=document.getElementById('forg');
+     forg.addEventListener("click",()=>{
+      location.assign('http://127.0.0.1:5500/forgotPassword.html');
+     });
+    </script>
+    <script>
+      let loader=document.getElementById('preloader');
+      window.addEventListener("load",()=>{
+        loader.style.display="none";
+      });
+    </script>
+  </body>
+</html>

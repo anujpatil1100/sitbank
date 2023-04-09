@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SIT Bank</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Acme">
+  <link rel="apple-touch-icon" sizes="57x57" href="Imagest/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="Imagest/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="Imagest/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="Imagest/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="Imagest/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="Imagest/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="Imagest/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="Imagest/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="Imagest/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="Imagest/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="Imagest/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="Imagest/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="Imagest/favicon-16x16.png">
+<link rel="manifest" href="Imagest/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+  <script src="script.js"></script>
+  <style>@page {size: A3;scale: 100;}</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script>
+    document.addEventListener("keyup",(e)=>{
+      if(e.key=='PrintScreen'){
+        navigator.clipboard.writeText('');
+        alert("ScreenShot Disabled")
+      }
+      else if(e.key=='Meta'){
+        navigator.clipboard.writeText('');
+        alert("ScreenShot Disabled")
+      }
+    });
+    </script>
+  </head>
+  <div id="preloader"></div>
+  <body id="body">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <div id="nb">
+    <nav class="navbar navbar-expand-lg bg-FFFFFF">
+        <div class="container-fluid">
+        <img style="margin-left:45% ;" src="logo.png" alt="SIT_Bank" width="200" height="90">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+           
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+          </div>
+        </div>
+      </nav>
+    <h3 style="margin-left: 150px;color:brown;text-decoration: underline;margin-top: 100px;">APPLICATION DETAILS</h3><br>
+    <h5 style="margin-left: 240px;">Application ID:</h5><p id="ai" style="margin-left:390px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+    <h5 style="margin-left: 240px;">Application Date:</h5><p id="ad" style="margin-left:410px ;margin-top:-30px;color:blue;font-weight:bold"> None</p>
+    <hr style="background-color: black; height: 10px;margin-top: 50px;">
+    <img id="avtek" src="avt.png" class="rounded float-start" alt="...">
+    <h3 style="margin-left: 150px;color:brown;text-decoration: underline;margin-top: 100px;">PERSONAL DETAILS</h3><br>
+    <h5 style="margin-left: 240px;">Full Name:</h5><p id="fn" style="margin-left:350px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+    <h5 style="margin-left: 240px;">Email ID:</h5><p id="ed" style="margin-left:330px ;margin-top:-30px;color:blue;font-weight:bold">None</p>
+    <h5 style="margin-left: 910px;margin-top: -80px;">Mobile Number:</h5><p id="mb" style="margin-left:1070px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+    <h5 style="margin-left: 910px;">Gender:</h5><p id="gr" style="margin-left:990px ;margin-top:-30px;color:blue;font-weight:bold">None</p>
+    <h5 style="margin-left: 240px;margin-top: 30px;">Date of Birth:</h5><p id="dob" style="margin-left:370px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+    <h5 style="margin-left: 240px;">State:</h5><p id="ka" style="margin-left:300px ;margin-top:-30px;color:blue;font-weight:bold">None</p>
+    <h5 style="margin-left: 910px;margin-top: -80px;">Address:</h5><p id="add" style="margin-left:995px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+    <h5 style="margin-left: 910px;">District:</h5><p id="dt" style="margin-left:990px ;margin-top:-30px;color:blue;font-weight:bold">None</p>
+    <h5 style="margin-left: 240px;margin-top: 30px;">Taluka:</h5><p id="ta" style="margin-left:310px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+    <h5 style="margin-left: 910px;margin-top: -50px;">Pincode:</h5><p id="pin" style="margin-left:995px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+    <hr style="background-color: black; height: 10px;">
+    <h3 style="margin-left: 150px;color:brown;text-decoration: underline;margin-top: 100px;">DOCUMENT</h3><br>
+    <h5 style="margin-left: 240px;">Aadhar Number:</h5><p id="an" style="margin-left:400px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+    <h5 style="margin-left: 240px;">PAN Number:</h5><p id="pn" style="margin-left:370px ;margin-top:-30px;color:blue;font-weight:bold">None</p>
+    </div>
+    <!-- Button trigger modal -->
+<button type="button" id="btns1" style="margin-left: 910px;margin-top: -170px;"  class="btn btn-outline-primary fa fa-eye" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  View
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Adhar Card Image</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img id="vb" src="avt.png" alt="...">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Button trigger modal -->
+<button type="button" id="btns2" style="margin-left: 910px;margin-top: -100px;" class="btn btn-outline-primary fa fa-eye" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  View
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">PAN Card Image</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img id="vbs" src="cash.png">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <hr style="background-color: black; height: 10px;">
+    <button type="button" id="cfm" style="margin-left: 1100px;margin-top: 10px;" class="btn btn-success">Confirm</button>
+    <button type="button" id="prt" style="margin-left: 1230px;margin-top: -70px;" class="btn btn-danger">Print</button>
+    <script type="module">
+  import{ initializeApp }from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+  import{ getDatabase,ref, set } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+      addEventListener("load",()=>{
+        let rg=Math.floor(Math.random() * 9999) + 1000;
+        var today = new Date();
+       var dds = String(today.getDate()).padStart(2, '0');
+       var mms = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+       var yyyy = today.getFullYear();
+       today = dds + '/' + mms + '/' + yyyy;
+       localStorage.setItem("todayd",today);
+         document.getElementById('ai').innerText=`SIT${yyyy}NA${rg}`;
+         let zq=`SIT${yyyy}NA${rg}`;
+         localStorage.setItem("appl",zq)
+         document.getElementById('ad').innerText=today;
+         let fulln=localStorage.getItem("First Name")+" "+localStorage.getItem("Middle Name")+" "+localStorage.getItem("Last Name");
+         localStorage.setItem("fls",fulln);
+         document.getElementById('fn').innerText=fulln;
+         document.getElementById('ed').innerText=localStorage.getItem("Email");
+         document.getElementById('mb').innerText=localStorage.getItem("Mobile");
+         let dobs=localStorage.getItem("dd")+"/"+localStorage.getItem("mm")+"/"+localStorage.getItem("yy");
+         localStorage.setItem("dobd",dobs);
+         document.getElementById('dob').innerText=dobs;
+         document.getElementById('ka').innerText=localStorage.getItem("State");
+         document.getElementById('add').innerText=localStorage.getItem("Address");
+         document.getElementById('dt').innerText=localStorage.getItem("Dist");
+         document.getElementById('ta').innerText=localStorage.getItem("Taluka");
+         document.getElementById('pin').innerText=localStorage.getItem("Pincode");
+         document.getElementById('gr').innerText=localStorage.getItem("gender");
+         const imga=localStorage.getItem("image");
+  if(imga){
+    document.querySelector('#avtek').setAttribute("src",imga);
+  }
+         let dhg=localStorage.getItem("Adhard")
+         let ghp=String(dhg).slice(-4);
+         let dhj=localStorage.getItem("pansd");
+         let ghj=String(dhj).slice(-4);
+         document.getElementById('an').innerText=`****${ghp}`;
+         document.getElementById('pn').innerText=`****${ghj}`;
+      });
+      let btns1=document.getElementById('btns1');
+      let btns2=document.getElementById('btns2');
+      btns1.addEventListener("click",()=>{
+        const op=localStorage.getItem("adh");
+  if(op){
+    document.querySelector('#vb').setAttribute("src",op);
+  }
+      });
+
+      btns2.addEventListener("click",()=>{
+        const ops=localStorage.getItem("pm");
+  if(ops){
+    document.querySelector('#vbs').setAttribute("src",ops);
+  }
+      });
+      
+      let cfm=document.getElementById('cfm');
+      const firebaseConfig = {
+  apiKey: "AIzaSyCmzzSNbKruwtBU2M6FoJpUq4FtOpa1wJ8",
+  authDomain: "sit-bank.firebaseapp.com",
+  databaseURL: "https://sit-bank-default-rtdb.firebaseio.com",
+  projectId: "sit-bank",
+  storageBucket: "sit-bank.appspot.com",
+  messagingSenderId: "100379698316",
+  appId: "1:100379698316:web:535c337a36e50cdfe407a9",
+  measurementId: "G-EDJ7Z5J27T"
+};
+
+
+      cfm.addEventListener("click",()=>{
+        
+ 
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+let ob=localStorage.getItem("appl");
+set(ref(database, 'users/' + ob), {
+  Aadhar_Number:localStorage.getItem("Adhard"),
+Aadhar_image:localStorage.getItem("adh"),
+Address:localStorage.getItem("Address"),
+Application_id:localStorage.getItem("appl"),
+Applied_Date:localStorage.getItem("todayd"),
+DOB: localStorage.getItem("dobd"),
+District:localStorage.getItem("Dist"),
+Email_id:localStorage.getItem("Email"),
+Full_Name:localStorage.getItem("fls"),
+Gender:localStorage.getItem("gender"),
+Mobile_Number:localStorage.getItem("Mobile"),
+PAN_Number:localStorage.getItem("pansd"),
+PAN_image:localStorage.getItem("pm"),
+Password:localStorage.getItem("Password"),
+Pincode:localStorage.getItem("Pincode"),
+State:localStorage.getItem("State"),
+Taluka:localStorage.getItem("Taluka")
+  });
+set(ref(database, 'request/' + ob), {
+    
+Aadhar_Number:localStorage.getItem("Adhard"),
+Aadhar_image:localStorage.getItem("adh"),
+Address:localStorage.getItem("Address"),
+Application_id:localStorage.getItem("appl"),
+Applied_Date:localStorage.getItem("todayd"),
+DOB: localStorage.getItem("dobd"),
+District:localStorage.getItem("Dist"),
+Email_id:localStorage.getItem("Email"),
+Full_Name:localStorage.getItem("fls"),
+Gender:localStorage.getItem("gender"),
+Mobile_Number:localStorage.getItem("Mobile"),
+PAN_Number:localStorage.getItem("pansd"),
+PAN_image:localStorage.getItem("pm"),
+Password:localStorage.getItem("Password"),
+Pincode:localStorage.getItem("Pincode"),
+State:localStorage.getItem("State"),
+Taluka:localStorage.getItem("Taluka")
+  });
+  localStorage.clear();
+  
+         document.getElementById('ai').innerText="None";
+         document.getElementById('ad').innerText="None";
+         document.getElementById('fn').innerText="None";
+         document.getElementById('ed').innerText="None";
+         document.getElementById('mb').innerText="None"
+         document.getElementById('dob').innerText="None";
+         document.getElementById('ka').innerText="None"
+         document.getElementById('add').innerText="None";
+         document.getElementById('dt').innerText="None";
+         document.getElementById('ta').innerText="None";
+         document.getElementById('pin').innerText="None";
+         document.getElementById('gr').innerText="None";
+         const op="logo.png";
+  if(op){
+    document.querySelector('#vb').setAttribute("src",op);
+    document.querySelector('#vbs').setAttribute("src",op);
+  }
+
+  
+  window.location.replace('http://127.0.0.1:5500/last.html');
+
+      });
+      let prt=document.getElementById('prt');
+      prt.addEventListener("click",()=>{
+        var body=document.getElementById('body').innerHTML;
+        var data=document.getElementById('nb').innerHTML;
+        document.getElementById('body').innerHTML=data;
+        window.print();
+        document.getElementById('body').innerHTML=body;
+      });
+      addEventListener("load",()=>{
+      setTimeout(() => {
+        window.location.replace('http://127.0.0.1:5500/index.html');
+      }, 600000);
+    });
+    </script>
+    <script>
+      let loader=document.getElementById('preloader');
+      window.addEventListener("load",()=>{
+        loader.style.display="none";
+      });
+    </script>
+  </body>
+</html>

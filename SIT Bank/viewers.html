@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SIT Bank</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Acme">
+  <link rel="apple-touch-icon" sizes="57x57" href="Imagest/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="Imagest/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="Imagest/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="Imagest/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="Imagest/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="Imagest/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="Imagest/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="Imagest/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="Imagest/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="Imagest/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="Imagest/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="Imagest/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="Imagest/favicon-16x16.png">
+<link rel="manifest" href="Imagest/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js">
+</script>
+  <script>
+    document.addEventListener("keyup",(e)=>{
+      if(e.key=='PrintScreen'){
+        navigator.clipboard.writeText('');
+        alert("ScreenShot Disabled")
+      }
+      else if(e.key=='Meta'){
+        navigator.clipboard.writeText('');
+        alert("ScreenShot Disabled")
+      }
+    });
+    </script>
+  </head>
+  <div id="preloader"></div>
+  <body id="body">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <div id="nb">
+        <div style="margin-left: 600px;" class="col-auto">
+            <input type="text" id="inputPassword2" placeholder="Application_id">
+            <button  id="secr" class="btn btn-primary">Search Identity</button>
+        </div>
+    <h3 style="margin-left: 150px;color:brown;text-decoration: underline;margin-top: 100px;">APPLICATION DETAILS</h3><br>
+    <h5 style="margin-left: 240px;">Application ID:</h5><p id="ai" style="margin-left:390px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+    <h5 style="margin-left: 240px;">Application Date:</h5><p id="ad" style="margin-left:410px ;margin-top:-30px;color:blue;font-weight:bold"> None</p>
+    <hr style="background-color: black; height: 10px;margin-top: 50px;">
+    <img id="avtek" src="avt.png" class="rounded float-start" alt="...">
+    <h3 style="margin-left: 150px;color:brown;text-decoration: underline;margin-top: 100px;">PERSONAL DETAILS</h3><br>
+    <h5 style="margin-left: 240px;">Full Name:</h5><p id="fn" style="margin-left:350px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+    <h5 style="margin-left: 240px;">Email ID:</h5><p id="ed" style="margin-left:330px ;margin-top:-30px;color:blue;font-weight:bold">None</p>
+    <h5 style="margin-left: 910px;margin-top: -80px;">Mobile Number:</h5><p id="mb" style="margin-left:1070px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+    <h5 style="margin-left: 910px;">Gender:</h5><p id="gr" style="margin-left:990px ;margin-top:-30px;color:blue;font-weight:bold">None</p>
+    <h5 style="margin-left: 240px;margin-top: 30px;">Date of Birth:</h5><p id="dob" style="margin-left:370px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+    <h5 style="margin-left: 240px;">State:</h5><p id="ka" style="margin-left:300px ;margin-top:-30px;color:blue;font-weight:bold">None</p>
+    <h5 style="margin-left: 910px;margin-top: -80px;">Address:</h5><p id="add" style="margin-left:995px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+    <h5 style="margin-left: 910px;">District:</h5><p id="dt" style="margin-left:990px ;margin-top:-30px;color:blue;font-weight:bold">None</p>
+    <h5 style="margin-left: 240px;margin-top: 30px;">Taluka:</h5><p id="ta" style="margin-left:310px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+    <h5 style="margin-left: 910px;margin-top: -50px;">Pincode:</h5><p id="pin" style="margin-left:995px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+    <hr style="background-color: black; height: 10px;">
+    <h3 style="margin-left: 150px;color:brown;text-decoration: underline;margin-top: 100px;">DOCUMENT</h3><br>
+    <h5 style="margin-left: 240px;">Aadhar Number:</h5><p id="an" style="margin-left:400px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+    <h5 style="margin-left: 240px;">PAN Number:</h5><p id="pn" style="margin-left:370px ;margin-top:-30px;color:blue;font-weight:bold">None</p>
+    </div>
+    <!-- Button trigger modal -->
+<button type="button" id="btns1" style="margin-left: 910px;margin-top: -170px;"  class="btn btn-outline-primary fa fa-eye" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  View
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Adhar Card Image</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img id="vb" src="avt.png" alt="...">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Button trigger modal -->
+<button type="button" id="btns2" style="margin-left: 910px;margin-top: -100px;" class="btn btn-outline-primary fa fa-eye" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  View
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">PAN Card Image</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img id="vbs" src="cash.png">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <hr style="background-color: black; height: 10px;">
+    <button type="button" id="acc" style="margin-left: 1100px;margin-top: 10px;" class="btn btn-success">Accept</button>
+    <button type="button" id="rej" style="margin-left: 1230px;margin-top: -70px;" class="btn btn-danger">Reject</button>
+    <script type="module">
+          import{ initializeApp }from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+          import{ getDatabase,ref,get,child, set,remove } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+          import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+          const firebaseConfig = {
+  apiKey: "AIzaSyCmzzSNbKruwtBU2M6FoJpUq4FtOpa1wJ8",
+  authDomain: "sit-bank.firebaseapp.com",
+  databaseURL: "https://sit-bank-default-rtdb.firebaseio.com",
+  projectId: "sit-bank",
+  storageBucket: "sit-bank.appspot.com",
+  messagingSenderId: "100379698316",
+  appId: "1:100379698316:web:535c337a36e50cdfe407a9",
+  measurementId: "G-EDJ7Z5J27T"
+};
+const app=initializeApp(firebaseConfig);
+
+const db=getDatabase(app);
+const auth = getAuth(app);
+     
+ const imga=localStorage.getItem("image");
+  if(imga){
+    document.querySelector('#avtek').setAttribute("src",imga);
+  }
+
+      let btns1=document.getElementById('btns1');
+      let btns2=document.getElementById('btns2');
+      btns1.addEventListener("click",()=>{
+        const op=localStorage.getItem("ansn");
+  if(op){
+    document.querySelector('#vb').setAttribute("src",op);
+  }
+      });
+
+      btns2.addEventListener("click",()=>{
+        const ops=localStorage.getItem("pnsn");
+  if(ops){
+    document.querySelector('#vbs').setAttribute("src",ops);
+  }
+      });
+      
+    
+var m="";
+let secr=document.getElementById('secr')
+secr.addEventListener("click",()=>{
+    loader.style.display="initial";
+    setTimeout(() => {
+        loader.style.display="none";
+    }, 5000);
+    const dbRef = ref(db);
+    let inputPassword2=document.getElementById('inputPassword2').value;
+get(child(dbRef,`request/${inputPassword2}`)).then((snapshot) => {
+  if (snapshot.exists()) {
+let ai=document.getElementById('ai').innerText=snapshot.val().Application_id;
+let ad=document.getElementById('ad').innerText=snapshot.val().Applied_Date;
+let fn=document.getElementById('fn').innerText=snapshot.val().Full_Name;
+let ed=document.getElementById('ed').innerText=snapshot.val().Email_id;
+let mb=document.getElementById('mb').innerText=snapshot.val().Mobile_Number;
+let dob=document.getElementById('dob').innerText=snapshot.val().DOB;
+let ka=document.getElementById('ka').innerText=snapshot.val().State;
+let add=document.getElementById('add').innerText=snapshot.val().Address;
+let dt=document.getElementById('dt').innerText=snapshot.val().District;
+let ta=document.getElementById('ta').innerText=snapshot.val().Taluka;
+let pin=document.getElementById('pin').innerText=snapshot.val().Pincode;
+let gr=document.getElementById('gr').innerText=snapshot.val().Gender;
+let an=document.getElementById('an').innerText=snapshot.val().Aadhar_Number;
+let pn=document.getElementById('pn').innerText=snapshot.val().PAN_Number;
+let ann=snapshot.val().Aadhar_image;
+let pnn=snapshot.val().PAN_image;
+const imga=snapshot.val().Profile_img;
+let pass=snapshot.val().Password;
+let shortName=snapshot.val().Short_Name;
+localStorage.setItem("ai",ai);
+localStorage.setItem("ad",ad);
+localStorage.setItem("fn",fn);
+localStorage.setItem("ed",ed);
+localStorage.setItem("mb",mb);
+localStorage.setItem("dob",dob);
+localStorage.setItem("ka",ka);
+localStorage.setItem("add",add);
+localStorage.setItem("dt",dt);
+localStorage.setItem("ta",ta);
+localStorage.setItem("pin",pin);
+localStorage.setItem("gr",gr);
+localStorage.setItem("an",an);
+localStorage.setItem("pn",pn);
+localStorage.setItem("ansn",ann);
+localStorage.setItem("pnsn",pnn);
+localStorage.setItem("imga",imga);
+localStorage.setItem("shortName",shortName);
+// (B3) DECRYPT
+var crypt = {
+  // (B1) THE SECRET KEY
+  secret : "CIPHERKEY",
+ 
+  // (B3) DECRYPT
+  decrypt : (cipher) => {
+    var decipher = CryptoJS.AES.decrypt(cipher, crypt.secret);
+    decipher = decipher.toString(CryptoJS.enc.Utf8);
+    return decipher;
+  }
+};
+var decipher = crypt.decrypt(pass);
+localStorage.setItem("decipher",decipher)
+
+  if(imga){
+    document.querySelector('#avtek').setAttribute("src",imga);
+  }
+   let i;
+   let h=localStorage.getItem('ed');
+   for(i=0;i<h.length;i++)
+   {
+    if(h[i]=="@"||h[i]==".")
+    {
+       break;
+    }
+    m+=h[i];
+   }
+  }
+   else {
+    loader.style.display="none";
+    alert("Data not found");
+  }
+}).catch((error) => {
+  console.log(error);
+});
+    });
+console.log(m)
+let acc=document.getElementById('acc');
+var today = new Date();
+       var dds = String(today.getDate()).padStart(2, '0');
+       var mms = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+       var yyyy = today.getFullYear();
+       today = dds + '/' + mms + '/' + yyyy;
+       localStorage.setItem("todayd",today);
+let annv=`SIT${localStorage.getItem("an")}`;
+acc.addEventListener("click",()=>{
+    set(ref(db, 'users/' +m ), {
+Profile_img:localStorage.getItem("imga"),
+Aadhar_Number:localStorage.getItem("an"),
+Aadhar_image:localStorage.getItem("ansn"),
+Account_Number:`SIT${localStorage.getItem("an")}`,
+Address:localStorage.getItem("add"),
+Application_id:localStorage.getItem("ai"),
+Applied_Date:localStorage.getItem("ad"),
+Accept_Date:localStorage.getItem("todayd"),
+Short_Name:localStorage.getItem("shortName"),
+DOB: localStorage.getItem("dob"),
+District:localStorage.getItem("dt"),
+Email_id:localStorage.getItem("ed"),
+Full_Name:localStorage.getItem("fn"),
+Gender:localStorage.getItem("gr"),
+Mobile_Number:localStorage.getItem("mb"),
+PAN_Number:localStorage.getItem("pn"),
+PAN_image:localStorage.getItem("pnsn"),
+Pincode:localStorage.getItem("pin"),
+State:localStorage.getItem("ka"),
+Taluka:localStorage.getItem("ta")
+  });
+  set(ref(db,'trans/'+`SIT${localStorage.getItem("an")}`),{
+    Short_Name:localStorage.getItem("shortName")
+  });
+  
+
+  createUserWithEmailAndPassword(auth,localStorage.getItem('ed') ,localStorage.getItem('decipher'))
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+
+  Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "sitbank2007@gmail.com",
+    Password : "A09CB5B2828593D000834B2F90AC99129F15",
+    To : localStorage.getItem('ed'),
+    From : "sitbank2007@gmail.com",
+    Subject : "SIT Bank",
+    Body : `Congratulations, ${localStorage.getItem("shortName")}<br>
+    Your SIT Bank Account has successfully created & your account number is<br>Account_Number:SIT${localStorage.getItem("an")}<br> open the bellow link and enjoy the SIT Bank services<br> http://127.0.0.1:5500/index.html`
+}).then(
+  
+);
+setTimeout(() => {
+ window.location.replace("http://127.0.0.1:5500/test.html"); 
+}, 5000); 
+loader.style.display="initial"; 
+remove(ref(db,"request/"+localStorage.getItem("ai"))).then(()=>{
+    
+})
+.carch((error)=>{
+    alert(error);
+})
+
+localStorage.clear();
+});
+
+let rej=document.getElementById('rej');
+rej.addEventListener("click",()=>{
+    Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "sitbank2007@gmail.com",
+    Password : "A09CB5B2828593D000834B2F90AC99129F15",
+    To : localStorage.getItem('ed'),
+    From : "sitbank2007@gmail.com",
+    Subject : "SIT Bank",
+    Body : `Hii, ${localStorage.getItem("shortName")}<br>
+    Your SIT Bank Account Application has been rejected please reapply the Application open the bellow link<br> http://127.0.0.1:5500/register.html`
+}).then(
+   
+);
+setTimeout(() => {
+ window.location.replace("http://127.0.0.1:5500/test.html"); 
+}, 5000); 
+loader.style.display="initial"; 
+remove(ref(db,"request/"+localStorage.getItem("ai"))).then(()=>{
+})
+.carch((error)=>{
+    alert(error);
+})
+localStorage.clear();
+})
+    </script>
+    <script>
+      let loader=document.getElementById('preloader');
+      window.addEventListener("load",()=>{
+        loader.style.display="none";
+      });
+    </script>
+  </body>
+</html>

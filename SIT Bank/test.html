@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  </head>
+  <body>
+    <h4>Request:<p id="req" style="color: red;">0</p></h4>
+    <button style="margin-left: 1400px
+    ; margin-top: -100px;" id="viewer"  type="button" class="btn btn-primary">Viewer</button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <table class="table  table-striped">
+        <thead>
+          <tr>
+            <th scope="col">SrNo</th>
+            <th scope="col">Application_ID</th>
+            <th scope="col">Applicant_Name</th>
+            <th scope="col">Application_Date</th>
+          </tr>
+        </thead>
+        <tbody id="tbody1">
+        </tbody>
+      </table>
+      <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div class="modal-content"">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Request</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h3 style="color:brown;text-decoration: underline;margin-top: 10px;">APPLICATION DETAILS</h3><br>
+            <h5 style="">Application ID:</h5><p id="ai" style="margin-left:150px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+            <h5 style="">Application Date:</h5><p id="ad" style="margin-left:170px ;margin-top:-30px;color:blue;font-weight:bold"> None</p>
+            <hr style="background-color: black; height: 10px;margin-top: 50px;">
+            <img src="avt.png" style="margin-left: 450px;margin-top: -260px;" width="20%" height="20%" class="img-thumbnail" alt="...">
+            <h3 style="color:brown;text-decoration: underline;margin-top: 80px;">PERSONAL DETAILS</h3><br>
+            <h5 style="">Full Name:</h5><p id="fn" style="margin-left:110px ;margin-top:-30px;color:blue;font-weight:bold">PRANAV PARSHARAM PATIL</p><br>
+            <h5 style="">Email ID:</h5><p id="ed" style="margin-left:90px ;margin-top:-30px;color:blue;font-weight:bold">None</p>
+            <h5 style="margin-left: 450px;margin-top: -100px;">Mobile Number:</h5><p id="mb" style="margin-left:610px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+            <h5 style="margin-left: 450px;">Gender:</h5><p id="gr" style="margin-left:530px ;margin-top:-30px;color:blue;font-weight:bold">None</p>
+            <h5 style="">Date of Birth:</h5><p id="dob" style="margin-left:130px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+            <h5 style="">State:</h5><p id="ka" style="margin-left:60px ;margin-top:-30px;color:blue;font-weight:bold">None</p>
+            <h5 style="margin-left: 450px;margin-top: -80px;">Address:</h5><p id="add" style="margin-left:540px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+            <h5 style="margin-left: 450px;">District:</h5><p id="dt" style="margin-left:530px ;margin-top:-30px;color:blue;font-weight:bold">None</p>
+            <h5 style="">Taluka:</h5><p id="ta" style="margin-left:80px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+            <h5 style="margin-left: 450px;margin-top: -50px;">Pincode:</h5><p id="pin" style="margin-left:540px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+            <hr style="background-color: black; height: 10px;">
+            <h3 style="color:brown;text-decoration: underline;margin-top: 80px;">DOCUMENT</h3><br>
+            <h5 style="">Aadhar Number:</h5><p id="an" style="margin-left:160px ;margin-top:-30px;color:blue;font-weight:bold">None</p><br>
+            <h5 style="">PAN Number:</h5><p id="pn" style="margin-left:130px ;margin-top:-30px;color:blue;font-weight:bold">None</p>
+            <!-- Button trigger modal -->
+            <button type="button" style="margin-left: 400px;margin-top: -200px;" class="btn btn-outline-primary fa fa-eye"> View</button>
+            <button type="button" style="margin-left: 400px;margin-top: -100px;" class="btn btn-outline-primary fa fa-eye"> View</button>
+        <div class="modal-footer">
+          <button id="acc" type="button" class="btn btn-success" data-bs-dismiss="modal">Accept</button>
+        </div>
+      </div>
+    </div>
+  </div>
+      <script type="module">
+      //    let mv=document.getElementById('mv');
+      //  mv.addEventListener("click",()=>{
+           
+        //     console.log("hii");
+        // });
+        var srno=0;
+        var bankList=[];
+        var tbody=document.getElementById('tbody1');
+        let viewer=document.getElementById('viewer');
+        viewer.addEventListener("click",()=>{
+          window.location.replace('http://127.0.0.1:5500/viewers.html?');
+        });
+      import{ initializeApp }from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+      import{ getDatabase,ref,child,get,onValue } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+        const firebaseConfig = {
+  apiKey: "AIzaSyCmzzSNbKruwtBU2M6FoJpUq4FtOpa1wJ8",
+  authDomain: "sit-bank.firebaseapp.com",
+  databaseURL: "https://sit-bank-default-rtdb.firebaseio.com",
+  projectId: "sit-bank",
+  storageBucket: "sit-bank.appspot.com",
+  messagingSenderId: "100379698316",
+  appId: "1:100379698316:web:535c337a36e50cdfe407a9",
+  measurementId: "G-EDJ7Z5J27T"
+};
+const app = initializeApp(firebaseConfig);
+const db=getDatabase(app);
+let req=document.getElementById('req');
+
+function AddAllItemToTable(Bank)
+        {
+            srno=0;
+            tbody.innerHTML=""
+            Bank.forEach(element => {
+                AddItemToTable(element.Application_id,element.
+Short_Name,element.Applied_Date);
+                checkpl(element.Application_id,element.Applied_Date,element.Aadhar_Number);
+            });
+        }
+    
+        function GetAllDataOnce()
+        {
+            const dbRef=ref(db);
+            get(child(dbRef, "request/")).then((snapshot) => {
+       var bank=[];
+       snapshot.forEach(childSnapshot=>{
+        bank.push(childSnapshot.val());
+       });
+       AddAllItemToTable(bank);
+});
+        }
+        function Filltable(index){
+          if(index==null)
+             {
+              ai.value="";
+              ad.value="";
+             }
+             else{
+              --index;
+              ai.value=bankList[index][1];
+              ad.value=bankList[index][1];
+             }
+        };
+        // let mv=document.getElementById('mv');
+        // mv.addEventListener("click",()=>{
+        //   console.log("Hii Anuj Patil")
+        // });
+        function checkpl(Application_id,Applied_Date,Aadhar_Number)
+        {
+          localStorage.setItem("cv1",Application_id);
+          localStorage.setItem("cv2",Applied_Date);
+          localStorage.setItem("cv3",Aadhar_Number);
+        }
+       
+        function AddItemToTable(Application_id,
+Short_Name,Applied_Date)
+        {
+            let trow=document.createElement('tr');
+            let td1=document.createElement('td');
+            let td2=document.createElement('td');
+            let td3=document.createElement('td');
+            let td4=document.createElement('td');
+            bankList.push([Application_id,Applied_Date])
+            td1.innerHTML=++srno;
+            td2.innerHTML=Application_id;
+            td4.innerHTML=Short_Name;
+            td3.innerHTML=Applied_Date;
+            trow.appendChild(td1);
+            trow.appendChild(td2);
+            trow.appendChild(td4);
+            trow.appendChild(td3);
+            req.innerText=srno;
+           // var control=document.createElement('div')
+            td1.addEventListener("click",()=>{
+              location.assign("http://127.0.0.1:5500/mnb.html")
+            })
+            // control.innerHTML=' <button id="mv" type="button" class="btn btn-primary my-2 ml-2" onclick="Anuj()"> View</button
+            tbody.appendChild(trow);
+           
+
+      
+        }
+        let ai= document.getElementById('ai')
+        let ad=   document.getElementById('ad')
+        let fn=   document.getElementById('fn')
+        let ed=  document.getElementById('ed')
+        let mb=  document.getElementById('mb')
+        let dob=  document.getElementById('dob')
+        let ka=  document.getElementById('ka')
+        let add=  document.getElementById('add')
+        let dt=  document.getElementById('dt')
+        let ta=  document.getElementById('ta')
+        let pin=  document.getElementById('pin')
+        let gr=  document.getElementById('gr')
+
+
+        let acc=  document.getElementById('acc')
+        let rej=  document.getElementById('rej')
+       
+        window.onload=GetAllDataOnce;
+        
+    
+      
+
+      
+      function Anuj(){
+        console.log("Hii Anuj")
+      }
+      </script>
+  </body>
+</html>

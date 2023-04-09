@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#preloader{
+    background: rgb(248,242,242) url("spinner.gif") no-repeat center center;
+    background-size: 10%;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}

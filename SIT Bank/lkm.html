@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <input id="sec" type="text" placeholder="sera">
+    <input id="date" type="text" placeholder="date">
+    <input id="adhar" type="text" placeholder="adhar">
+    <input id="em" type="text" placeholder="Email">
+    <button id="btn">Click</button>
+    <button id="btn1">Click6</button>
+    <script type="module">
+          import{ initializeApp }from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+          import{ getDatabase,ref,get,child, set,remove } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+          import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+          const firebaseConfig = {
+  apiKey: "AIzaSyCmzzSNbKruwtBU2M6FoJpUq4FtOpa1wJ8",
+  authDomain: "sit-bank.firebaseapp.com",
+  databaseURL: "https://sit-bank-default-rtdb.firebaseio.com",
+  projectId: "sit-bank",
+  storageBucket: "sit-bank.appspot.com",
+  messagingSenderId: "100379698316",
+  appId: "1:100379698316:web:535c337a36e50cdfe407a9",
+  measurementId: "G-EDJ7Z5J27T"
+};
+const app=initializeApp(firebaseConfig);
+
+const db=getDatabase(app);
+const auth = getAuth(app);
+var m="";
+btn.addEventListener("click",()=>{
+let sec=document.getElementById('sec').value;
+let date=document.getElementById('date');
+let adhar=document.getElementById('adhar');
+let btn=document.getElementById('btn');
+let em=document.getElementById('em');
+
+const dbRef = ref(db);
+get(child(dbRef,`request/${sec}`)).then((snapshot) => {
+  if (snapshot.exists()) {
+   let da= date.value=snapshot.val().Applied_Date;
+   let df= adhar.value=snapshot.val().Aadhar_Number;
+   let ai=snapshot.val().Aadhar_image;
+   let bn= em.value=snapshot.val().Email_id;
+   let pass=snapshot.val().Password
+   localStorage.setItem("bnm",pass);
+  //  let bn= em.value=snapshot.val().Email_id;
+  //  let bn= em.value=snapshot.val().Email_id;
+  //  let bn= em.value=snapshot.val().Email_id;
+  //  let bn= em.value=snapshot.val().Email_id;
+  //  let bn= em.value=snapshot.val().Email_id;
+  //  let bn= em.value=snapshot.val().Email_id;
+  //  let bn= em.value=snapshot.val().Email_id;
+  //  let bn= em.value=snapshot.val().Email_id;
+  //  let bn= em.value=snapshot.val().Email_id;
+  //  let bn= em.value=snapshot.val().Email_id;
+   
+   localStorage.setItem("da",da);
+   localStorage.setItem("df",df);
+   localStorage.setItem("bn",bn);
+   localStorage.setItem("ais",ai);
+    var h=localStorage.getItem("bn");
+   let i;
+   var k="";
+   for(i=0;i<h.length;i++)
+   {
+    if(h[i]=="@")
+    {
+       break;
+    }
+    m+=h[i];
+   }
+  console.log(m);
+  
+
+  } else {
+    console.log("No data available");
+  }
+}).catch((error) => {
+  console.log(error);
+});
+});
+let btn1=document.getElementById('btn1');
+btn1.addEventListener("click",()=>{
+set(ref(db, 'users/' + m), {
+    Applied_Date: localStorage.getItem('da'),
+    email: localStorage.getItem('bn'),
+    Adhar : localStorage.getItem('df'),
+    Aadhar_image:localStorage.getItem('ais')
+  });
+
+  createUserWithEmailAndPassword(auth,localStorage.getItem('bn') ,localStorage.getItem('bnm'))
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+
+let sec=document.getElementById('sec').value;
+remove(ref(db,"request/"+sec)).then(()=>{
+    alert("deleted");
+})
+.carch((error)=>{
+    alert(error);
+})
+// var survey=db.ref(request+'/'+sec);    //Eg path is company/employee                
+//  survey.child(sec).remove();          //Eg key is employee id
+})
+    </script>
+
+  </body>
+</html>

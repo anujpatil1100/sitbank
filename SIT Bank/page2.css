@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#preloader{
+    background: rgb(248, 242, 242) url("spinner.gif") no-repeat center center;
+    background-size: 10%;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+.Buttondemo{
+    text-align: center;   
+width: 1300px;  
+height: 1300px;  
+padding-top: 50px; 
+}
+#btn{  
+    font-size: 2000px;  
+    }  
+.textdemo{
+    border-bottom: 10px;
+}
+.text-center{ 
+    color: black;
+    border-bottom: 200cm;
+        line-height: 100px; 
+        
+    } 
+#bordr{
+    border:solid 7px;
+    border-color: blue;
+}
+#adi1{
+    text-decoration-line: underline;
+    text-shadow: 2px 2px green;
+}
+#adi2{
+    text-decoration-line: underline;
+    color: red;
+}

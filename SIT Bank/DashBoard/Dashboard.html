@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="hjk.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+ <link rel="apple-touch-icon" sizes="57x57" href="Imagest/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="Imagest/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="Imagest/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="Imagest/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="Imagest/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="Imagest/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="Imagest/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="Imagest/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="Imagest/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="Imagest/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="Imagest/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="Imagest/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="Imagest/favicon-16x16.png">
+<link rel="manifest" href="Imagest/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<style>
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  background-color: #eff3fd;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 300px;
+  background-color: #ffffff;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  color: #4461f2;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+.sidebar button{
+    background-color: #4461f2;
+    color: white;
+    font-size: 20px;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.sidebar button:hover{
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+div.content {
+  margin-left: 300px;
+  padding: 1px 5px;
+  height: 100px;
+}
+
+div.block{
+   margin-left: 375px;
+   margin-right: 375px;
+   background-color: #ffffff;
+   padding-left: 25px;
+   padding-top: 15px;
+   height: 325px;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   
+}
+  
+div.block1{
+   margin-left: 375px;
+   margin-right: 375px;
+   margin-top: 20px;
+   background-color: #ffffff;
+   padding-left: 25px;
+   padding-top: 20px;
+   height: 300px;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+div.block2{
+   margin-left: 1250px;
+   margin-right: 15px;
+   margin-top: -535px;
+   background-color: #ffffff;
+   padding-left: 25px;
+   padding-right: 35px;
+   padding-top: 10px;
+   height: 175px;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.block2 button{
+  background-color: #4461f2;
+    color: white;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+.profile_img{
+  margin-left: 85%;
+  margin-top: -23%;
+  
+}
+#profile-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+</style>
+<title>Dashboard</title>
+</head>
+<body>
+<div id="preloader"></div>
+<div class="sidebar">
+  <img src="logo.png" alt="logo" height="150 px" Width="300px">
+  <a class="active" href="Dashboard.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-columns-gap" viewBox="0 0 16 16">
+    <path d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z"/>
+  </svg> Dashboard</a>
+  <a href="Account.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-handbag" viewBox="0 0 16 16">
+    <path d="M8 1a2 2 0 0 1 2 2v2H6V3a2 2 0 0 1 2-2zm3 4V3a3 3 0 1 0-6 0v2H3.36a1.5 1.5 0 0 0-1.483 1.277L.85 13.13A2.5 2.5 0 0 0 3.322 16h9.355a2.5 2.5 0 0 0 2.473-2.87l-1.028-6.853A1.5 1.5 0 0 0 12.64 5H11zm-1 1v1.5a.5.5 0 0 0 1 0V6h1.639a.5.5 0 0 1 .494.426l1.028 6.851A1.5 1.5 0 0 1 12.678 15H3.322a1.5 1.5 0 0 1-1.483-1.723l1.028-6.851A.5.5 0 0 1 3.36 6H5v1.5a.5.5 0 1 0 1 0V6h4z"/>
+  </svg> Account</a>
+  <a href="Upi.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-phone-flip" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M11 1H5a1 1 0 0 0-1 1v6a.5.5 0 0 1-1 0V2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v6a.5.5 0 0 1-1 0V2a1 1 0 0 0-1-1Zm1 13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a.5.5 0 0 0-1 0v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-2a.5.5 0 0 0-1 0v2ZM1.713 7.954a.5.5 0 1 0-.419-.908c-.347.16-.654.348-.882.57C.184 7.842 0 8.139 0 8.5c0 .546.408.94.823 1.201.44.278 1.043.51 1.745.696C3.978 10.773 5.898 11 8 11c.099 0 .197 0 .294-.002l-1.148 1.148a.5.5 0 0 0 .708.708l2-2a.5.5 0 0 0 0-.708l-2-2a.5.5 0 1 0-.708.708l1.145 1.144L8 10c-2.04 0-3.87-.221-5.174-.569-.656-.175-1.151-.374-1.47-.575C1.012 8.639 1 8.506 1 8.5c0-.003 0-.059.112-.17.115-.112.31-.242.6-.376Zm12.993-.908a.5.5 0 0 0-.419.908c.292.134.486.264.6.377.113.11.113.166.113.169 0 .003 0 .065-.13.187-.132.122-.352.26-.677.4-.645.28-1.596.523-2.763.687a.5.5 0 0 0 .14.99c1.212-.17 2.26-.43 3.02-.758.38-.164.713-.357.96-.587.246-.229.45-.537.45-.919 0-.362-.184-.66-.412-.883-.228-.223-.535-.411-.882-.571ZM7.5 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1Z"/>
+  </svg> UPI</a>
+  <a href="Transaction.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+  </svg> Transactions</a>
+  <a href="About.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-person" viewBox="0 0 16 16">
+    <path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+    <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+  </svg> About</a>
+  <a href="Settings.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+    <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+    <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+  </svg> Settings</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <button style="cursor: pointer;" id="btn" type="button" class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+    <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+  </svg> Logout</button>
+</div>
+<div class="content">
+  <h2 style="font-weight: bold;" id="ai">Hello...</h2><h5 id="dates">4.45pm 8 oct 2022</h5>
+</div>
+<div class="block" >
+<h2 style="font-weight: bold;">Transactions Overview</h2>
+<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1660" height="700" style="display: block; height: 350px; width: 830px;"></canvas>
+</div>
+<div class="block1" >
+  <h2 style="font-weight: bold;">Recent Transaction</h2><br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sr.No</th>
+        <th scope="col">Name</th>
+        <th scope="col">Credit/Debit</th>
+        <th scope="col">Date</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td id="1">PRANAV PATIL</td>
+        <td id="2">Credit</td>
+        <td id="3">20/10/2022</td>
+        <td id="4">+500</td>
+        <td id="5" style="color: green;">Completed</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td id="6">ADITYA PATIL</td>
+        <td id="7">Debited</td>
+        <td id="8">15/03/2022</td>
+        <td id="9">-250</td>
+        <td id="10" style="color: green;">Completed</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td id="11">HRISHIKESH RANADE</td>
+        <td id="12">Debited</td>
+        <td id="13">17/03/2022</td>
+        <td id="14">-300</td>
+        <td id="15" style="color: red;">Failed</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="block2">
+  <h2 style="font-weight: bold;">Balance</h2><br>
+  <h4 id="bal" style="color: rgb(170, 10, 165);">5000.00 ₹</h4>
+</div>
+<div class="profile_img" id="profile-container">
+  <img id="avtekd" src="avt.png" class="rounded-circle" style="width: 150px;" alt="Avatar" />
+</div>
+<script type="module">
+  function formatAMPM(date) {
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  var strTime = hours + ':' + minutes+ ampm;
+  return strTime;
+}
+const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const d = new Date();
+setInterval(() => {
+  let str=formatAMPM(new Date)+' '+d.getDate()+' '+month[d.getMonth()]+' '+d.getFullYear();
+  let dates=document.getElementById('dates').innerText=str;
+}, 1000);
+import{ initializeApp }from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+import{ getDatabase,ref,get,child, set,remove } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword,signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+          const firebaseConfig = {
+  apiKey: "AIzaSyCmzzSNbKruwtBU2M6FoJpUq4FtOpa1wJ8",
+  authDomain: "sit-bank.firebaseapp.com",
+  databaseURL: "https://sit-bank-default-rtdb.firebaseio.com",
+  projectId: "sit-bank",
+  storageBucket: "sit-bank.appspot.com",
+  messagingSenderId: "100379698316",
+  appId: "1:100379698316:web:535c337a36e50cdfe407a9",
+  measurementId: "G-EDJ7Z5J27T"
+};
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getDatabase(app);
+const dbref=ref(db);
+addEventListener("load",()=>{
+ get(child(dbref,`users/${localStorage.getItem("logs")}`)).then((snapshots)=>{
+  if(snapshots.exists()){
+     let ai=document.getElementById('ai').innerText="Hello"+' '+snapshots.val().Short_Name;
+     const imga=snapshots.val().Profile_img;
+     if(imga){
+    document.querySelector('#avtekd').setAttribute("src",imga);
+  }
+  }
+ }).catch((error)=>{
+  console.log(error);
+ });
+});
+if(localStorage.getItem("logs")=="adityapatil2815")
+{
+   let c1=document.getElementById('1').innerText="ANUJ PATIL";
+   let c6=document.getElementById('6').innerText="HRISHIKESH RANADE";
+   let c11=document.getElementById('11').innerText="PRANAV PATIL";
+   let c2=document.getElementById('2').innerText="Credit";
+   let c7=document.getElementById('7').innerText="Credit";
+   let c12=document.getElementById('12').innerText="Credit";
+   let c3=document.getElementById('3').innerText="4/05/2022";
+   let c8=document.getElementById('8').innerText="6/10/2022";
+   let c13=document.getElementById('13').innerText="15/08/2022";
+   let c4=document.getElementById('4').innerText="+562";
+   let c9=document.getElementById('9').innerText="+83";
+   let c14=document.getElementById('14').innerText="+211";
+   let c5=document.getElementById('5').innerText="Completed";
+   let bal=document.getElementById('bal').innerText="1260 ₹"
+   let c10=document.getElementById('10').innerText="Completed";
+   let c15=document.getElementById('15');
+   c15.style.color="green";
+   c15.innerText="Completed";
+}
+else if(localStorage.getItem("logs")=="hrishikesh")
+{
+  let c1=document.getElementById('1').innerText="ANUJ PATIL";
+   let c6=document.getElementById('6').innerText="ADITYA PATIL";
+   let c11=document.getElementById('11').innerText="PRANAV PATIL";
+   let c2=document.getElementById('2').innerText="Debited";
+   let c7=document.getElementById('7').innerText="Credit";
+   let c12=document.getElementById('12').innerText="Debited";
+   let c3=document.getElementById('3').innerText="25/03/2022";
+   let c8=document.getElementById('8').innerText="14/09/2022";
+   let c13=document.getElementById('13').innerText="08/05/2022";
+   let c4=document.getElementById('4').innerText="-452";
+   let c9=document.getElementById('9').innerText="+1000";
+   let bal=document.getElementById('bal').innerText="3690 ₹"
+   let c14=document.getElementById('14').innerText="-221";
+   let c5=document.getElementById('5').innerText="Completed";
+   let c10=document.getElementById('10');
+   let c15=document.getElementById('15');
+   c15.style.color="red";
+   c10.style.color="red";
+   c10.innerText="Failed";
+   c15.innerText="Failed";
+}
+let btn=document.getElementById('btn');
+  btn.addEventListener("click",()=>{
+signOut(auth).then(() => {
+  window.location.replace("http://127.0.0.1:5500/index.html");
+}).catch((error) => {
+  alert(error);
+});
+
+  });
+</script>
+<script>
+  let loader=document.getElementById('preloader');
+  window.addEventListener("load",()=>{
+    loader.style.display="none";
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Otp-Verification</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="shine.css" />
+    <link rel="apple-touch-icon" sizes="57x57" href="Imagest/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="Imagest/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="Imagest/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="Imagest/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="Imagest/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="Imagest/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="Imagest/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="Imagest/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="Imagest/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="Imagest/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="Imagest/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="Imagest/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="Imagest/favicon-16x16.png">
+<link rel="manifest" href="Imagest/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+  </head>
+  <body>
+    <div id="preloader"></div>
+    <nav class="navbar navbar-expand-lg bg-FFFFFF">
+        <div class="container-fluid">
+        <img src="logo.png" alt="SIT_Bank" width="160" height="80">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+          </div>
+        </div>
+      </nav>
+    <div class="d-flex justify-content-center align-items-center continer">
+      <div class="card py-5 px-3">
+        <h5 class="m-0">Email verification</h5>
+        <span class="mobile-text"
+          ><b>Enter the code we just sent on your Email</b>
+          <b id="em" class="text-color">None</b>
+        </span>
+        <div class="d-flex flex-row mt-5">
+          <input id="txt1" type="text" class="form-control" autofocus="" />
+          <input id="txt2"  type="text" class="form-control" />
+          <input id="txt3" type="text" class="form-control" />
+          <input id="txt4" type="text" class="form-control" />
+        </div>
+        <button id="btn" type="button" style="margin-top: 20px;" class="btn btn-danger">Verify</button>
+        <div class="text-center mt-5">
+          <span class="d-block mobile-text" id="countdown"></span>
+          <span class="d-block mobile-text" id="resend"></span>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-success" id="alet" role="alert"  style="visibility:hidden;">
+        Verified OTP
+      </div>
+    <script src="script.js"></script>
+    <script>
+        addEventListener("load",()=>{
+            let em=document.getElementById('em').innerText=localStorage.getItem('Email');
+            let fns=localStorage.getItem('First Name')+" "+localStorage.getItem('Last Name');
+            let rg=Math.floor(Math.random() * 9999) + 1000;
+//             var templateParams = {
+//     name: localStorage.getItem('Email'),
+//     notes: `Hi, ${fns}<br>
+//     Your SIT Bank Account Registration OTP is ${rg}`
+// };
+ 
+// emailjs.send('service_s31qk2i', 'template_9tylkqa', templateParams,'QaGu2-20yYU3-Ckv6')
+//     .then(function(response) {
+//        console.log('SUCCESS!', response.status, response.text);
+//     }, function(error) {
+//        console.log('FAILED...', error);
+//     });
+            Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "sitbank2007@gmail.com",
+    Password : "A09CB5B2828593D000834B2F90AC99129F15",
+    To : localStorage.getItem('Email'),
+    From : "sitbank2007@gmail.com",
+    Subject : "Email Verification",
+    Body : `Hi, ${fns}<br>
+    Your SIT Bank Account Registration OTP is ${rg}`
+}).then(
+  
+);
+localStorage.setItem("otp",rg);
+        });
+      let btn=document.getElementById('btn');
+      btn.addEventListener("click",()=>{
+        let txt1=document.getElementById('txt1').value;
+        let txt2=document.getElementById('txt2').value;
+        let txt3=document.getElementById('txt3').value;
+        let txt4=document.getElementById('txt4').value;
+        let uotp=txt1+txt2+txt3+txt4;
+        if(uotp==localStorage.getItem('otp'))
+        {
+          alert("Verified OTP");
+          let txt1=document.getElementById('txt1').value="";
+        let txt2=document.getElementById('txt2').value="";
+        let txt3=document.getElementById('txt3').value="";
+        let txt4=document.getElementById('txt4').value="";
+          window.location.replace("http://127.0.0.1:5500/finalregister.html");
+          localStorage.removeItem('otp');
+       }
+       else{
+        alert("Wrong OTP!");
+        let txt1=document.getElementById('txt1').value="";
+        let txt2=document.getElementById('txt2').value="";
+        let txt3=document.getElementById('txt3').value="";
+        let txt4=document.getElementById('txt4').value="";
+       }
+      });
+      let res=document.getElementById('resend');
+      res.addEventListener("click",()=>{
+        let txt1=document.getElementById('txt1').value="";
+        let txt2=document.getElementById('txt2').value="";
+        let txt3=document.getElementById('txt3').value="";
+        let txt4=document.getElementById('txt4').value="";
+        let em=document.getElementById('em').innerText=localStorage.getItem('Email');
+            let fns=localStorage.getItem('First Name')+" "+localStorage.getItem('Last Name');
+            let rg=Math.floor(Math.random() * 9999) + 1000;
+            Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "sitbank2007@gmail.com",
+    Password : "A09CB5B2828593D000834B2F90AC99129F15",
+    To : localStorage.getItem('Email'),
+    From : "sitbank2007@gmail.com",
+    Subject : "Email Verification",
+    Body : `Hi,\n${fns}\n
+    Your SIT Bank Account Registration OTP is ${rg}`
+}).then(
+  message => alert(message)
+);
+localStorage.setItem("otp",rg);
+      });
+      addEventListener("load",()=>{
+      setTimeout(() => {
+        window.location.replace('http://127.0.0.1:5500/index.html');
+      }, 600000);
+    });
+    </script>
+    <script>
+      let loader=document.getElementById('preloader');
+      window.addEventListener("load",()=>{
+        loader.style.display="none";
+      });
+    </script>
+  </body>
+</html>

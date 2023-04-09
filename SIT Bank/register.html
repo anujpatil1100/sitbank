@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SIT Bank</title>
+    <script>
+    document.addEventListener("keyup",(e)=>{
+      if(e.key=='PrintScreen'){
+        navigator.clipboard.writeText('');
+        alert("ScreenShot Disabled")
+      }
+      else if(e.key=='Meta'){
+        navigator.clipboard.writeText('');
+        alert("ScreenShot Disabled")
+      }
+    });
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Acme">
+  <link rel="apple-touch-icon" sizes="57x57" href="Imagest/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="Imagest/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="Imagest/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="Imagest/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="Imagest/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="Imagest/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="Imagest/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="Imagest/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="Imagest/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="Imagest/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="Imagest/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="Imagest/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="Imagest/favicon-16x16.png">
+<link rel="manifest" href="Imagest/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  </head>
+  <body>
+    <div id="preloader"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <nav class="navbar navbar-expand-lg bg-FFFFFF">
+        <div class="container-fluid">
+        <img src="logo.png" alt="SIT_Bank" width="160" height="80">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <li class="nav-item">
+                <a id="sig1" class="nav-link" href="http://127.0.0.1:5500/index.html">Sign in</a>
+              </li>
+          </div>
+        </div>
+      </nav>
+      <p id="lete">Let's Grow</p>
+      <img id="jp" src="jump.png">
+      <img id="che" src="cash.png">
+      <div id="bue"></div>
+      <p id="lete1">Together</p>
+      <img id="rpe" src="rupees.png">
+      <img id="rpe1" src="rupees.png">
+      <img id="rpe2" src="rupees.png">
+      <div class="input">
+        <div class="card" style="width: 25rem;" id="cars">
+            <input class="form-control"  type="text"id="Input1" placeholder="First Name">
+            <input class="form-control" type="text"id="Input2" placeholder="Middle Name">
+            <input class="form-control" type="text"id="Input3" placeholder="Last Name">
+            <select style="margin-top:15px ;size: 15px;" class="form-select" aria-label=".form-select-sm example" id="gf">
+              <option value=0 selected>Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+            <input class="form-control" type="email"id="Input4" placeholder="Enter Email">
+            <input class="form-control" type="number" minlength="10" maxlength="10" id="Input5" placeholder="Enter Mobile Number">
+            <label id="lc">Create Password</label>
+            <label id="lcp">Confirm Password</label>
+            <div class="input-group mb-3" id="cre">
+              <input type="password" class="form-control" id="Input6" aria-label="Recipient's username" aria-describedby="basic-addon2">
+              <i class="input-group-text" id="vie"><i id="eye" class="fa fa-eye" aria-hidden="true"></i></i>
+            </div>
+            <input class="form-control" type="password"id="Input7">
+          <div class="card-body">
+            <ion-icon name="eye-outline"></ion-icon>
+            <a style="margin-top: 35px;"  class="btn btn-primary" id="btn1">Next</a>
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-danger" id="alet" role="alert" style="visibility:hidden;">
+        Fill all blanks text field—check it out!
+      </div>
+    <script>
+     let vie =document.getElementById('vie');
+     vie.addEventListener("click",()=>{
+      let Input6 =document.getElementById('Input6');
+      let eye =document.getElementById('eye');
+      if(Input6.type=="password"){
+        eye.className="fa fa-eye-slash";
+        Input6.type="text";
+      }
+      else{
+        eye.className="fa fa-eye";
+        Input6.type="password";
+      }
+     });
+     let btn1=document.getElementById('btn1');
+     btn1.addEventListener("click",()=>{
+     let Input1=document.getElementById('Input1').value;
+     let Input2=document.getElementById('Input2').value;
+     let Input3=document.getElementById('Input3').value;
+     let Input4=document.getElementById('Input4').value;
+     let Input5=document.getElementById('Input5').value;
+     let Input6=document.getElementById('Input6').value;
+     let Input7=document.getElementById('Input7').value;
+     var e = document.getElementById("gf");
+     var value = e.value;
+     let alet=document.getElementById('alet');
+     if(Input1==""||Input2==""||Input3==""||Input4==""||Input5==""||Input6==""||Input7==""||value==0)
+     {
+      
+         setTimeout(() => {
+            alet.style.visibility="visible";
+          }, 1000);
+
+          setTimeout(() => {
+            alet.style.visibility="hidden";
+          }, 8000);
+     }
+     else if(Input5.length!=10){
+           alert("Enter right mobile number!");
+     }
+     else if(Input6!=Input7){
+           alert("Password not match!");
+     }
+     else if(!Input4.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/))
+     {
+      alert("Enter the valid email");
+     }
+     else if(Input6.length<8&&Input6.length>12)
+     {
+      alert("The password min length should be 8 and maximum is 12");
+     }
+     else{
+let zx1=Input1.toUpperCase();
+let zx2=Input2.toUpperCase();
+let zx3=Input3.toUpperCase();
+localStorage.setItem("First Name",zx1);
+localStorage.setItem("Middle Name",zx2);
+localStorage.setItem("Last Name",zx3);
+localStorage.setItem("Email",Input4);
+localStorage.setItem("Mobile",Input5);
+localStorage.setItem("gender",value);
+var crypt = {
+  // (B1) THE SECRET KEY
+  secret : "CIPHERKEY",
+ 
+  // (B2) ENCRYPT
+  encrypt : (clear) => {
+    var cipher = CryptoJS.AES.encrypt(clear, crypt.secret);
+    cipher = cipher.toString();
+    return cipher;
+  }
+}
+var cipher = crypt.encrypt(Input7);
+localStorage.setItem("Password",cipher);
+     Input1=localStorage.getItem('First Name');
+     Input2=localStorage.getItem('Middle Name');
+     Input3=localStorage.getItem('Last Name');
+     Input4=localStorage.getItem('Email');
+     Input5=localStorage.getItem('Mobile');
+     value=localStorage.getItem('gender');
+      location.assign("http://127.0.0.1:5500/register1.html");
+     }
+     
+     });
+     addEventListener("load",()=>{
+      setTimeout(() => {
+        window.location.replace('http://127.0.0.1:5500/index.html');
+      }, 600000);
+    });
+    </script>
+    <script>
+      let loader=document.getElementById('preloader');
+      window.addEventListener("load",()=>{
+        loader.style.display="none";
+      });
+    </script>
+  </body>
+</html>

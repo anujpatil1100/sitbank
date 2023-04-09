@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SIT Bank</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Acme">
+  <link rel="apple-touch-icon" sizes="57x57" href="Imagest/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="Imagest/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="Imagest/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="Imagest/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="Imagest/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="Imagest/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="Imagest/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="Imagest/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="Imagest/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="Imagest/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="Imagest/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="Imagest/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="Imagest/favicon-16x16.png">
+<link rel="manifest" href="Imagest/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("keyup",(e)=>{
+      if(e.key=='PrintScreen'){
+        navigator.clipboard.writeText('');
+        alert("ScreenShot Disabled")
+      }
+      else if(e.key=='Meta'){
+        navigator.clipboard.writeText('');
+        alert("ScreenShot Disabled")
+      }
+    });
+    </script>
+  </head>
+  <body>
+    <div id="preloader"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <nav class="navbar navbar-expand-lg bg-FFFFFF">
+        <div class="container-fluid">
+        <img src="logo.png" alt="SIT_Bank" width="160" height="80">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+          </div>
+        </div>
+      </nav>
+      <p id="let">"Money is the best</p>
+      <img id="st" src="stand.png">
+      <div id="bu"></div>
+      <p id="let1">rule of commerce"</p>
+      <img id="rpt" src="rupees.png">
+      <img id="rpt1" src="rupees.png">
+      <img id="rpt2" src="rupees.png">
+      <div class="input">
+        <div class="card" style="width: 25rem;" id="cart">
+          <img id="avte" src="avt.png" class="card-img-top" alt="image">
+          <label for="formFile" id="labe">Upload Profile Image</label>
+          <div class="mb-3">
+            <input id="files" oninput="lq()" accept="image/*" class="form-control form-control-sm" type="file" id="formFile">
+          </div>
+          <div class="card-body">
+            <label for="formFile" id="labe1">Address</label>
+            <input class="form-control" type="text"id="Inpute4" placeholder="First Line">
+            <input class="form-control"  type="text"id="Input1" placeholder="State">
+            <input class="form-control" type="text"id="Input3" placeholder="District">
+            <input class="form-control"  type="text"id="Inpute1" placeholder="Taluka">
+            <input class="form-control" type="number"id="Inpute3" placeholder="Pincode">
+            <label for="formFile" id="labe1">Date of Birth</label>
+            <input class="form-control" maxlength="2"  type="number"id="dd" placeholder="DD">
+            <input class="form-control" maxlength="2" type="number"id="mm" placeholder="MM">
+            <input class="form-control" maxlength="4" type="number"id="yy" placeholder="YY">
+            <a href="http://127.0.0.1:5500/register.html" class="btn btn-primary" id="bac1">Back</a>
+            <a href="#" class="btn btn-primary" id="nxt1">Next</a>
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-danger" id="alet" role="alert"  style="visibility:hidden;">
+        Fill all blanks text field—check it out!
+      </div>
+    <script>
+   function lq() {
+            // get user's uploaded image
+  let avte=document.getElementById('avte').value;
+const imgPath = document.getElementById('files').files[0];
+const reader = new FileReader();
+let loader=document.getElementById('preloader');
+reader.addEventListener("load", function () {
+    // convert image file to base64 string and save to localStorage
+  localStorage.setItem("image", reader.result);
+  const op=localStorage.getItem("image");
+  if(op){
+    document.querySelector('#avte').setAttribute("src",op);
+  }
+  
+
+}, false);
+
+if (imgPath) {
+    reader.readAsDataURL(imgPath);
+}
+   }
+    let nxt1=document.getElementById('nxt1');
+    nxt1.addEventListener("click",()=>{
+     let Input1=document.getElementById('Input1').value;
+     let Input3=document.getElementById('Input3').value;
+     let Inpute1=document.getElementById('Inpute1').value;
+     let Inpute3=document.getElementById('Inpute3').value;
+     let Inpute4=document.getElementById('Inpute4').value;
+     let dd=document.getElementById('dd').value;
+     let mm=document.getElementById('mm').value;
+     let yy=document.getElementById('yy').value;
+     if(Inpute4==""||Input1==""||Input3==""||Inpute1==""||Inpute3==""||dd==""||mm==""||yy=="")
+     {
+      
+      setTimeout(() => {
+            alet.style.visibility="visible";
+          }, 1000);
+
+          setTimeout(() => {
+            alet.style.visibility="hidden";
+          }, 8000);
+     }
+     else if(dd>31||dd<1||mm>12||mm<1||yy.length!=4)
+     {
+      alert("Enter proper Date of birth")
+     }
+     else{
+  
+      let qw1=Input1.toUpperCase();
+      let qw2=Input3.toUpperCase();
+      let qw3=Inpute1.toUpperCase();
+      localStorage.setItem("Address",Inpute4);
+      localStorage.setItem("State",qw1);
+      localStorage.setItem("Dist",qw2);
+      localStorage.setItem("Taluka",qw3);
+      localStorage.setItem("Pincode",Inpute3);
+      localStorage.setItem("dd",dd);
+      localStorage.setItem("mm",mm);
+      localStorage.setItem("yy",yy);
+      Input1=localStorage.getItem('State');
+      Input3=localStorage.getItem('Dist');
+      Inpute1=localStorage.getItem('Taluka');
+      Inpute3=localStorage.getItem('Pincode');
+      Inpute4=localStorage.getItem('Address');
+      dd=localStorage.getItem('dd');
+      mm=localStorage.getItem('mm');
+      yy=localStorage.getItem('yy');
+      const op=localStorage.getItem("image");
+  if(op){
+    document.querySelector('#avte').setAttribute("src",op);
+  }
+      location.assign("http://127.0.0.1:5500/register2.html");
+
+     }
+     });
+     addEventListener("load",()=>{
+      setTimeout(() => {
+        window.location.replace('http://127.0.0.1:5500/index.html');
+      }, 600000);
+    });
+    </script>
+    <script>
+      let loader=document.getElementById('preloader');
+      window.addEventListener("load",()=>{
+        loader.style.display="none";
+      });
+    </script>
+  </body>
+</html>
